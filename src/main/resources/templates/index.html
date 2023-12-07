@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: header"></head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>no</th>
+                <th>title</th>
+                <th>author</th>
+                <th>modifiedDate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:each=" post : ${posts}">
+                <tr>
+                    <td th:text="${post.id}"></td>
+                    <td><a th:href="@{|/posts/update/${post.id}|}" th:text="${post.title}"></a></td>
+                    <td th:text="${post.author}"></td>
+                    <td th:text="${post.modifiedDate}"></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+
+</body>
+
+<footer th:replace="fragments.html :: footer"></footer>
+</html>
